@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
@@ -19,9 +20,15 @@ namespace Numbers
         /// </summary>
         /// <param name="number">User's number.</param>
         /// <returns>Next bigger number.</returns>
+        /// <exception cref="ArgumentException">Throws when the number is below zero.</exception>
         public static int FindNextBiggerNumber(int number)
         {
             const int PossibleNumbers = 10;
+
+            if (number < 0)
+            {
+                throw new ArgumentException(nameof(number) + " can't be below 0");
+            }
 
             if (number < PossibleNumbers)
             {

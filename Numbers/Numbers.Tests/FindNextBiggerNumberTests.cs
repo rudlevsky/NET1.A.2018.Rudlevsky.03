@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 
 namespace Numbers.Tests
 {
@@ -18,7 +19,12 @@ namespace Numbers.Tests
         public int FindNextBiggerNumber_DifferentNumbers_ReturnCorrectResults(int number)
         {
             return Finder.FindNextBiggerNumber(number);
+        }
 
+        [Test]
+        public void FindNextBiggerNumber_BelowZeroNumber_ArgumentExceprion()
+        {
+            Assert.Throws<ArgumentException>(() => Finder.FindNextBiggerNumber(-1));
         }
     }
 }
